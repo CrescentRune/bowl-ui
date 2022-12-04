@@ -1,16 +1,19 @@
 import { Component } from "@angular/core";
 import { RouterModule } from '@angular/router';
+import { NavigationComponent } from "../navigation/navigation.component";
 
 @Component({
   selector: 'app-layout',
   standalone: true,
   template: `
-    <div>Bowl</div>
-    <router-outlet></router-outlet>
-    <div>Made by Hank</div>
+    <app-navigation></app-navigation>
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
   `,
   imports: [
-    RouterModule
+    RouterModule,
+    NavigationComponent
   ]
 })
 export class LayoutComponent {
