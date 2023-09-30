@@ -5,6 +5,7 @@ enum GameState {
   init = 'INIT',
   creating = 'CREATING',
   playing = 'PLAYING',
+  ended = 'ENDED',
 }
 
 interface Game {

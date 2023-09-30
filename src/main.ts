@@ -7,7 +7,7 @@ import { importProvidersFrom } from '@angular/core';
 
 const appRoutes: Route[] = [
   {
-    path: "",
+    path: '',
     loadComponent: () => import('./app/layout/layout.component').then((m) => m.LayoutComponent),
     loadChildren: () => import('./app/layout/layout.routes').then((m) => m.routes)
     // path: '',
@@ -18,7 +18,9 @@ const appRoutes: Route[] = [
 bootstrapApplication(AppComponent,
   { providers: [
     provideRouter(appRoutes),
-    importProvidersFrom([HttpClientModule])
+    importProvidersFrom([
+      HttpClientModule,
+    ])
   ]}).catch((error) =>
   console.log(error)
 );
