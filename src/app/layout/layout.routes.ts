@@ -2,6 +2,10 @@ import { Route } from "@angular/router";
 
 export const routes: Route[] = [
   {
+    path: 'join',
+    loadComponent: () => import('../game/join-game/join-game.component').then((m) => m.JoinGameComponent)
+  },
+  {
     path: 'add-paper',
     loadComponent: () => import('../add-paper/add-paper.component').then((c) => c.AddPaperComponent)
   },
@@ -15,7 +19,7 @@ export const routes: Route[] = [
   },
   {
     path: "",
-    redirectTo: "pull",
+    redirectTo: "join",
     pathMatch: "full",
   },
 ]

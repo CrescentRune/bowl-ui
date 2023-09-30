@@ -2,11 +2,14 @@ import { BehaviorSubject, Observable } from "rxjs";
 
 export class Bowl {
 
-  private papers: string[] = [];
+  private papers: string[] = ['Test', 'These', 'Strings', 'Are'];
   papers$ = new BehaviorSubject<string[]>([]);
+  bowlEmpty$ = new BehaviorSubject<boolean>(true);
   private inBowl: string[] = [];
 
-  constructor() {}
+  constructor() {
+    this.resetBowl();
+  }
 
   shuffleBowl() {
     let bowl = this.inBowl;
@@ -30,8 +33,7 @@ export class Bowl {
   addPaper(text: string) {
     if (this.papers.indexOf(text) < 0) {
       this.papers.push(text);
-      this.shuffleBowl();
-      this.onUpdateCards();
+      this.resetBowl();
     }
   }
 
